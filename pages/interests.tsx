@@ -7,8 +7,8 @@ export default function Interests() {
         <MainDiv>
             <Box as="section">
                 <Heading as="h1" variant="h1">Getting personal</Heading>
-                <Text>So, you probably already read my <Link href="/about-me"><ChakraLink>professional profile</ChakraLink></Link>, but now you want to dig a bit deeper, know the things that incite curiosity in me, that inspire me.</Text>
-                <Text>In this page I'll give you a brief rundown of what I feel are my greatest passions, if you share some of them and would like to talk about it I'm more than eager to get in touch!</Text>
+                <Text>In this page I want to touch briefly about some of the things that move me, my greatest interests in life.</Text>
+                <Text>If you share some of them and would like to talk about it I'm more than eager to get in touch!</Text>
             </Box>
             <Box as="section">
                 <Heading as="h2" variant="h2">📖 Open-source coding projects</Heading>
@@ -41,6 +41,7 @@ export default function Interests() {
             <Box as="section">
                 <Heading as="h2" variant="h2">🌌 Astronomy</Heading>
                 <Text>I'm endlessly fascinated (and deeply scared) by the vastness of the universe, by the unimmaginable scale and weird properties of celestial bodies. I could listen for hours to people explaining all the crazy phenomena that happen in space, and many times I do.</Text>
+                <Text>I like astronomy so much that my only (so far at least) tattoo is that of a black hole on my right upper arm.</Text>
             </Box>
             <Box as="section">
                 <Heading as="h2" variant="h2">⚡️ Electronics</Heading>
