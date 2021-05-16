@@ -24,17 +24,23 @@ const theme = extendTheme({
 }, MyTheme);
 
 interface WorkExperienceProps {
+    variant?: 'last-child',
     children?: JSX.Element | JSX.Element[] | string;
 }
 
-export function WorkExperience({ children }: WorkExperienceProps) {
+export function WorkExperience({ children, variant }: WorkExperienceProps) {
     return (
         <ThemeProvider theme={theme}>
             <Box as="section">
-                <Divider></Divider>
                 {children}
                 {/* a bit of space */}
-                <Box w="full" h="4"></Box>
+                <Box w="full" h="2"></Box>
+                {
+                    variant !== 'last-child' ? <>
+                        <Divider></Divider>
+                        <Box w="full" h="2"></Box>
+                    </> : <></>
+                }
             </Box>
         </ThemeProvider>
     );
