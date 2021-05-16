@@ -1,4 +1,4 @@
-import { Container, Divider, Grid, Box, Heading, Link, UnorderedList, ListItem, Spacer } from "@chakra-ui/layout";
+import { Container, Divider, Grid, Box, Heading, Link, UnorderedList, ListItem } from "@chakra-ui/layout";
 
 export function MyFooter() {
     return (

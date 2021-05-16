@@ -1,4 +1,4 @@
-import { Container, Divider, Flex, Button, Box, Text, useColorMode, useMediaQuery, HTMLChakraProps, useColorModeValue } from "@chakra-ui/react";
+import { Container, Divider, Flex, Button, Box, Text, useColorMode, useMediaQuery, HTMLChakraProps, useColorModeValue, Icon } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion, HTMLMotionProps, Variants } from "framer-motion";
@@ -12,7 +12,7 @@ type MotionFlexProps = Merge<HTMLChakraProps<"div">, HTMLMotionProps<"div">>;
 export const MotionFlex: React.FC<MotionFlexProps> = motion(Flex);
 
 interface NavBarLinkProps {
-    text: string;
+    children: JSX.Element | JSX.Element[] | string;
     href: string;
     isMobile: boolean;
 }
@@ -23,7 +23,7 @@ interface NavBarLinkProps {
  * @param param0 props
  * @returns A single link for the navbar
  */
-function NavBarLink({ text, href, isMobile }: NavBarLinkProps) {
+function NavBarLink({ children, href, isMobile }: NavBarLinkProps) {
     // get the current path
     const { asPath } = useRouter();
 
@@ -55,7 +55,7 @@ function NavBarLink({ text, href, isMobile }: NavBarLinkProps) {
                 flexGrow={0}
                 flexDirection="column"
                 justifyContent="center">
-                <Text as="a" cursor="pointer">{text}</Text>
+                <Text as="a" cursor="pointer">{children}</Text>
             </MotionFlex>
         </Link>
     }
@@ -64,13 +64,11 @@ function NavBarLink({ text, href, isMobile }: NavBarLinkProps) {
         <MotionFlex
             animate={isActive ? 'active' : 'inactive'}
             variants={variants}
-            h="full"
             w="max-content"
-            px="3"
+            pr="3"
             flexGrow={0}
-            flexDirection="column"
-            justifyContent="center">
-            <Text as="a" cursor="pointer">{text}</Text>
+            flexDirection="column">
+            <Text as="a" cursor="pointer">{children}</Text>
         </MotionFlex>
     </Link>
 }
@@ -99,9 +97,10 @@ export function NavBar() {
 
     // list of menu items
     const menuItems = [
-        <NavBarLink href="/" text="Home" isMobile={!showFullMenu}></NavBarLink>,
-        <NavBarLink href="/about-me" text="About me" isMobile={!showFullMenu}></NavBarLink>,
-        <NavBarLink href="/interests" text="Interests" isMobile={!showFullMenu}></NavBarLink>,
+        <NavBarLink key="1" href="/" isMobile={!showFullMenu}>Home</NavBarLink>,
+        <NavBarLink key="2" href="/resume" isMobile={!showFullMenu}>Resume</NavBarLink>,
+        <NavBarLink key="3" href="/interests" isMobile={!showFullMenu}>Interests</NavBarLink>,
+        <NavBarLink key="4" href="/blog" isMobile={!showFullMenu}>Blog</NavBarLink>,
     ];
 
     return <Container maxW="container.md" px="0">
