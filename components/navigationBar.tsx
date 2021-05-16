@@ -45,19 +45,21 @@ function NavBarLink({ children, href, isMobile }: NavBarLinkProps) {
     }
 
     if (isMobile) {
-        <Link href={href}>
-            <MotionFlex
-                animate={isActive ? 'active' : 'inactive'}
-                variants={variants}
-                h="full"
-                w="max-content"
-                pr="3"
-                flexGrow={0}
-                flexDirection="column"
-                justifyContent="center">
-                <Text as="a" cursor="pointer">{children}</Text>
-            </MotionFlex>
-        </Link>
+        return (
+            <Link href={href}>
+                <MotionFlex
+                    animate={isActive ? 'active' : 'inactive'}
+                    variants={variants}
+                    h="full"
+                    w="max-content"
+                    paddingRight="6"
+                    flexGrow={0}
+                    flexDirection="column"
+                    justifyContent="center">
+                    <Text as="a" cursor="pointer">{children}</Text>
+                </MotionFlex>
+            </Link>
+        );
     }
 
     return <Link href={href}>
