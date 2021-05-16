@@ -1,8 +1,10 @@
-import { Container, Divider, Flex, Switch, Text, useColorMode, useMediaQuery, Link as ChakraLink, HTMLChakraProps, theme as baseTheme, useColorModeValue } from "@chakra-ui/react";
+import { Container, Divider, Flex, Button, Box, Text, useColorMode, useMediaQuery, HTMLChakraProps, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion, HTMLMotionProps, Variants } from "framer-motion";
 import { MyTheme } from "./theme";
+import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { useAppContext } from "../context/state";
 
 type Merge<P, T> = Omit<P, keyof T> & T;
 type MotionFlexProps = Merge<HTMLChakraProps<"div">, HTMLMotionProps<"div">>;
@@ -12,6 +14,7 @@ export const MotionFlex: React.FC<MotionFlexProps> = motion(Flex);
 interface NavBarLinkProps {
     text: string;
     href: string;
+    isMobile: boolean;
 }
 
 /**
@@ -20,7 +23,7 @@ interface NavBarLinkProps {
  * @param param0 props
  * @returns A single link for the navbar
  */
-function NavBarLink({ text, href }: NavBarLinkProps) {
+function NavBarLink({ text, href, isMobile }: NavBarLinkProps) {
     // get the current path
     const { asPath } = useRouter();
 
@@ -41,6 +44,22 @@ function NavBarLink({ text, href }: NavBarLinkProps) {
         }
     }
 
+    if (isMobile) {
+        <Link href={href}>
+            <MotionFlex
+                animate={isActive ? 'active' : 'inactive'}
+                variants={variants}
+                h="full"
+                w="max-content"
+                px="3"
+                flexGrow={0}
+                flexDirection="column"
+                justifyContent="center">
+                <Text as="a" cursor="pointer">{text}</Text>
+            </MotionFlex>
+        </Link>
+    }
+
     return <Link href={href}>
         <MotionFlex
             animate={isActive ? 'active' : 'inactive'}
@@ -57,19 +76,69 @@ function NavBarLink({ text, href }: NavBarLinkProps) {
 }
 
 export function NavBar() {
+    // global context has info about menu
+    const { menuIsExpanded, toggleExpandedMenu } = useAppContext();
+    // used to switch between 'light' and 'dark' color modes
     const { colorMode, toggleColorMode } = useColorMode();
-    const isLg = useMediaQuery('(min-width: 48em)')[0];
-    if (true) {
-        return <Container maxW="container.md">
-            <Flex justifyContent="start" alignItems="center" as="nav">
-                <Flex w="full">
-                    <NavBarLink href="/" text="Home"></NavBarLink>
-                    <NavBarLink href="/about-me" text="About me"></NavBarLink>
-                    <NavBarLink href="/interests" text="Interests"></NavBarLink>
+
+    // width of the side menu on mobile devices
+    const { mobileMenuWidth } = useAppContext();
+
+    // variants for the side menu on mobile devices
+    const variants: Variants = {
+        collapsed: {
+            translateX: '-100%',
+        },
+        expanded: {
+            translateX: '0px',
+        }
+    };
+
+    // media query to decide whether to show the full menu or the hamburger
+    const showFullMenu = useMediaQuery(`(min-width: ${MyTheme.breakpoints.sm})`)[0];
+
+    // list of menu items
+    const menuItems = [
+        <NavBarLink href="/" text="Home" isMobile={!showFullMenu}></NavBarLink>,
+        <NavBarLink href="/about-me" text="About me" isMobile={!showFullMenu}></NavBarLink>,
+        <NavBarLink href="/interests" text="Interests" isMobile={!showFullMenu}></NavBarLink>,
+    ];
+
+    return <Container maxW="container.md" px="0">
+        {/* Side menu shown on mobile devices */}
+        {!showFullMenu ? <motion.div
+            style={{ position: 'fixed', width: mobileMenuWidth, height: '100%', zIndex: 1 }}
+            variants={variants}
+            animate={menuIsExpanded ? 'expanded' : 'collapsed'}>
+            <Box w="full" h="full" backgroundColor={colorMode === 'light' ? MyTheme.colors.white : MyTheme.colors.gray[800]} boxShadow="xl">
+                {/* Button to close side menu */}
+                <Flex justifyContent="flex-end">
+                    <Button aria-label="Close mobile menu" variant="ghost" onClick={() => { toggleExpandedMenu(false) }}><CloseIcon /></Button>
                 </Flex>
-                <Switch isChecked={colorMode === 'light' ? false : true} onChange={toggleColorMode}></Switch>
+                {/* Side menu links */}
+                <Box p="3">
+                    {menuItems.map(item => item)}
+                </Box>
+            </Box>
+        </motion.div> : <></>}
+        {/* Main nav bar */}
+        <Flex justifyContent="start" alignItems="center" as="nav">
+            <Flex w="full">
+                {/* Show only a hamburger button on mobile devices */}
+                {showFullMenu ? <>
+                    {menuItems.map(item => item)}
+                </> : <>
+                    <Button aria-label="Open mobile menu" variant="ghost" onClick={() => { toggleExpandedMenu(true) }}><HamburgerIcon /></Button>
+                </>}
             </Flex>
-            <Divider></Divider>
-        </Container>;
-    }
+            {/* Switch color mode button */}
+            <Button
+                aria-label="Switch color mode"
+                variant="ghost"
+                onClick={toggleColorMode}>
+                {colorMode === 'light' ? <MoonIcon aria-label="Dark mode" /> : <SunIcon aria-label="Light mode" />}
+            </Button>
+        </Flex>
+        <Divider></Divider>
+    </Container>;
 }
