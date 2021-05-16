@@ -1,5 +1,4 @@
 import { Text, Box, Heading, Link as ChakraLink, Divider } from "@chakra-ui/react";
-import Link from "next/link";
 import { MainDiv } from "../components/main";
 
 export default function Interests() {
@@ -14,22 +13,22 @@ export default function Interests() {
                 <Heading as="h2" variant="h2">📖 Open-source coding projects</Heading>
                 <Text>There's all sorts of repos in my GitHub about the most disparate things. Not all code is pretty but it's a great playground to experiment with new and sometimes old technologies.</Text>
                 <Box as="article">
-                    <Heading as="h3" variant="h3"><ChakraLink href="https://github.com/fbatta/rbyc-theme/" target="_blank">RBYC theme</ChakraLink></Heading>
+                    <Heading as="h3" variant="h3"><ChakraLink href="https://github.com/fbatta/rbyc-theme/" rel="noopener" target="_blank">RBYC theme</ChakraLink></Heading>
                     <Text fontSize="xs">A Wordpress theme, based on twentytwenty, made for the website of the company I work for. It has some customisations to work a bit more nicely with things like WooCommerce. You can visit the site <ChakraLink href="https://rbyc.org.au" target="_blank">here</ChakraLink>.</Text>
                     <Divider></Divider>
                 </Box>
                 <Box as="article">
-                    <Heading as="h3" variant="h3"><ChakraLink href="https://github.com/fbatta/nextjs-gallery" target="_blank">Nextjs gallery</ChakraLink></Heading>
+                    <Heading as="h3" variant="h3"><ChakraLink href="https://github.com/fbatta/nextjs-gallery" rel="noopener" target="_blank">Nextjs gallery</ChakraLink></Heading>
                     <Text fontSize="xs">A very simple photo gallery built with Next.js. It does not rely on any database, just throw any images and directories you want into the public folder and navigate around as if it was your computer's file manager.</Text>
                     <Divider></Divider>
                 </Box>
                 <Box as="article">
-                    <Heading as="h3" variant="h3"><ChakraLink href="https://github.com/fbatta/vproweather" target="_blank">Vantage Pro Weather</ChakraLink></Heading>
+                    <Heading as="h3" variant="h3"><ChakraLink href="https://github.com/fbatta/vproweather" rel="noopener" target="_blank">Vantage Pro Weather</ChakraLink></Heading>
                     <Text fontSize="xs">The original project was written in C, I'm now passing it to Nodejs and adding a few extra bells and whistles. It is a CLI to pull weather data from a Vantage PRO2 console, a very popular weather station console within yacht clubs here in Australia. I aim to also integrate it with a weather API to have real-time weather info available online.</Text>
                     <Divider></Divider>
                 </Box>
                 <Box as="article">
-                    <Heading as="h3" variant="h3"><ChakraLink href="https://github.com/fbatta/cococode" target="_blank">CocoCode</ChakraLink></Heading>
+                    <Heading as="h3" variant="h3"><ChakraLink href="https://github.com/fbatta/cococode" rel="noopener" target="_blank">CocoCode</ChakraLink></Heading>
                     <Text fontSize="xs">This website you're visiting, built with Next.js, Chakra UI and framer-motion.</Text>
                 </Box>
             </Box>

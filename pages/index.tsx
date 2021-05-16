@@ -31,8 +31,8 @@ export default function Home() {
       </Box>
       <Box as="section">
         <Heading as="h2" variant="h2">Ok, so where to next?</Heading>
-        <Text>I'm interested in a career as a web developer (full-stack | frontend | backend) or mobile app developer. To find out if I'm the right person for your company you can check out my <ChakraLink><Link href="/resume">resume</Link></ChakraLink>.</Text>
-        <Text>If you want to know what I keep myself busy with during my leisure time, check out my <ChakraLink><Link href="/interests">interests</Link></ChakraLink> page.</Text>
+        <Text>I'm interested in a career as a web developer (full-stack | frontend | backend) or mobile app developer. To find out if I'm the right person for your company you can check out my <Link href="/resume" passHref><ChakraLink>resume</ChakraLink></Link>.</Text>
+        <Text>If you want to know what I keep myself busy with during my leisure time, check out my <Link href="/interests" passHref><ChakraLink>interests</ChakraLink></Link> page.</Text>
         <Text>If you're interested in reading my random thoughts... You'll have to wait a tiny bit longer 😄. The blog is still under construction.</Text>
       </Box>
     </MainDiv>

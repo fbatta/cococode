@@ -9,9 +9,9 @@ export function MyFooter() {
                     <Box>
                         <Heading as="h3" size="md" py="2">Useful links</Heading>
                         <UnorderedList listStyleType="none" ml="unset">
-                            <ListItem><Link href="https://twitter.com/Beitz25" target="_blank">Twitter</Link></ListItem>
-                            <ListItem><Link href="https://github.com/fbatta" target="_blank">GitHub</Link></ListItem>
-                            <ListItem><Link href="https://www.linkedin.com/in/battaglinifrancesco/" target="_blank">LinkedIn</Link></ListItem>
+                            <ListItem py="1"><Link href="https://twitter.com/Beitz25" rel="noopener" target="_blank">Twitter</Link></ListItem>
+                            <ListItem py="1"><Link href="https://github.com/fbatta" rel="noopener" target="_blank">GitHub</Link></ListItem>
+                            <ListItem py="1"><Link href="https://www.linkedin.com/in/battaglinifrancesco/" rel="noopener" target="_blank">LinkedIn</Link></ListItem>
                         </UnorderedList>
                     </Box>
                     <Box>

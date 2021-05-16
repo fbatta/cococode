@@ -87,7 +87,7 @@ export default function Resume() {
                     {/* Education */}
                     <Box as="section">
                         <Heading as="h2" variant="h2">Education</Heading>
-                        <Text>I completed my Bachelor degree in International Economics at the <ChakraLink href="https://www.unipd.it" target="_blank">University of Padova</ChakraLink> (Italy) in December 2015. My final mark was 106/110.</Text>
+                        <Text>I completed my Bachelor degree in International Economics at the <ChakraLink href="https://www.unipd.it" rel="noopener" target="_blank">University of Padova</ChakraLink> (Italy) in December 2015. My final mark was 106/110.</Text>
                         <Text>I focused mainly on the topics of marketing and economic and monetary policy.</Text>
                     </Box>
                     {/* Work experiences */}
@@ -95,7 +95,7 @@ export default function Resume() {
                         <Heading as="h2" variant="h2">Work experience</Heading>
                         {/* RBYC */}
                         <WorkExperience>
-                            <Heading as="h3" variant="h3">Sports Development Officer @ <ChakraLink href="https://rbyc.org.au" target="_blank">Royal Brighton Yacht Club</ChakraLink></Heading>
+                            <Heading as="h3" variant="h3">Sports Development Officer @ <ChakraLink href="https://rbyc.org.au" rel="noopener" target="_blank">Royal Brighton Yacht Club</ChakraLink></Heading>
                             <Heading as="h4" variant="h4">October 2017 - present | Melbourne, AU</Heading>
                             <Text>While I help out in many different areas around the club, my main tasks involve:</Text>
                             <UnorderedList fontSize="xs">
@@ -115,7 +115,7 @@ export default function Resume() {
                         </WorkExperience>
                         {/* ULTIMATE */}
                         <WorkExperience>
-                            <Heading as="h3" variant="h3">Software Developer @ <ChakraLink href="https://ultimate.srl" target="_blank">ULTIMATE Srl</ChakraLink></Heading>
+                            <Heading as="h3" variant="h3">Software Developer @ <ChakraLink href="https://ultimate.srl" rel="noopener" target="_blank">ULTIMATE Srl</ChakraLink></Heading>
                             <Heading as="h4" variant="h4">December 2017 - present | Venice, Italy (remote work)</Heading>
                             <Text>This is a startup I have been working with for some years now. As the sole developer I develop and maintain the entire codebase for the Ultimate wine refrigerators line-up, which comprises:</Text>
                             <UnorderedList fontSize="xs">
@@ -135,7 +135,7 @@ export default function Resume() {
                         </WorkExperience>
                         {/* VdV */}
                         <WorkExperience variant="last-child">
-                            <Heading as="h3" variant="h3">Boatyard Manager @ <ChakraLink href="http://ventodivenezia.it" target="_blank">VdV Srl</ChakraLink></Heading>
+                            <Heading as="h3" variant="h3">Boatyard Manager @ <ChakraLink href="http://ventodivenezia.it" rel="noopener" target="_blank">VdV Srl</ChakraLink></Heading>
                             <Heading as="h4" variant="h4">January 2016 - August 2017 | Venice, Italy</Heading>
                             <Text>Worked in a managerial role in a fast-growing startup in the nautical services sector. I performed all sorts of tasks, but the most relevant ones are:</Text>
                             <UnorderedList fontSize="xs">
@@ -153,7 +153,7 @@ export default function Resume() {
                     {/* Hobbies */}
                     <Box as="section">
                         <Heading as="h2" variant="h2">Hobbies and interests</Heading>
-                        <Text>Read all about it <Link href="/interests"><ChakraLink>here</ChakraLink></Link>.</Text>
+                        <Text>Read all about it <Link href="/interests" passHref><ChakraLink>here</ChakraLink></Link>.</Text>
                     </Box>
                     {/* References */}
                     <Box as="section">
