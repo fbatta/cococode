@@ -4,29 +4,33 @@ export const MyTheme = extendTheme({
     components: {
         Heading: {
             variants: {
-                'h1': {
+                h1: {
                     lineHeight: 'tall',
                     borderBottom: '3px solid',
                     mb: 3,
                 },
-                'h2': {
+                h2: {
                     lineHeight: 'tall',
                     py: 2,
+                },
+                h3: {
+                    fontSize: 'md',
+                    py: 1.5
                 }
             },
         },
         Text: {
             baseStyle: {
-                py: 2
+                py: 2,
             }
         },
         Link: {
             baseStyle: {
                 fontWeight: 'bold',
-                bgGradient: "linear(to-r, pink.500, purple.500)",
-                bgClip: "text"
+                bgGradient: 'linear(to-r, pink.500, purple.500)',
+                bgClip: 'text',
             }
-        }
+        },
     },
     fonts: {
         heading: 'Fira Code',
