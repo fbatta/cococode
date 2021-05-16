@@ -51,7 +51,7 @@ function NavBarLink({ children, href, isMobile }: NavBarLinkProps) {
                 variants={variants}
                 h="full"
                 w="max-content"
-                px="3"
+                pr="3"
                 flexGrow={0}
                 flexDirection="column"
                 justifyContent="center">
@@ -65,7 +65,7 @@ function NavBarLink({ children, href, isMobile }: NavBarLinkProps) {
             animate={isActive ? 'active' : 'inactive'}
             variants={variants}
             w="max-content"
-            pr="3"
+            px="3"
             flexGrow={0}
             flexDirection="column">
             <Text as="a" cursor="pointer">{children}</Text>
