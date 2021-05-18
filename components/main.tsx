@@ -1,7 +1,7 @@
 import { MyFooter } from "./footer";
 import { NavBar } from "./navigationBar";
 import { motion, Variants } from "framer-motion";
-import { Container } from "@chakra-ui/react";
+import { Container, Box } from "@chakra-ui/react";
 import { useAppContext } from "../context/state";
 
 interface MainDivProps {
@@ -21,7 +21,7 @@ export function MainDiv({ children }: MainDivProps) {
         }
     };
     return (
-        <>
+        <Box overflowX="hidden">
             <NavBar></NavBar>
             <motion.div variants={variants} animate={menuIsExpanded ? 'translated' : 'normal'}>
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -31,6 +31,6 @@ export function MainDiv({ children }: MainDivProps) {
                 </motion.div>
                 <MyFooter></MyFooter>
             </motion.div>
-        </>
+        </Box>
     )
 }
