@@ -8,6 +8,12 @@ interface MainDivProps {
     children: JSX.Element | JSX.Element[] | string;
 };
 
+/**
+ * Return a div containing the basic app skeleton: the navbar, the main content and the footer
+ * 
+ * @param param0 component properties
+ * @returns the main div
+ */
 export function MainDiv({ children }: MainDivProps) {
     const { menuIsExpanded, mobileMenuWidth } = useAppContext();
     const variants: Variants = {

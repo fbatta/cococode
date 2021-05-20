@@ -1,5 +1,6 @@
 import { extendTheme, theme, withDefaultColorScheme } from "@chakra-ui/react";
 
+// default app theme, extends chakra's base theme with the 'purple' color scheme
 export const MyTheme = extendTheme({
     components: {
         Heading: {

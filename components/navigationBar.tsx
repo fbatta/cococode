@@ -9,8 +9,10 @@ import { useAppContext } from "../context/state";
 type Merge<P, T> = Omit<P, keyof T> & T;
 type MotionFlexProps = Merge<HTMLChakraProps<"div">, HTMLMotionProps<"div">>;
 
+// create a component that merges a chakra Flex and a motion.div
 export const MotionFlex: React.FC<MotionFlexProps> = motion(Flex);
 
+// NavBarLink component properties
 interface NavBarLinkProps {
     children: JSX.Element | JSX.Element[] | string;
     href: string;
@@ -33,6 +35,7 @@ function NavBarLink({ children, href, isMobile }: NavBarLinkProps) {
     // we need the text color in the different color modes
     const textColor = useColorModeValue(MyTheme.colors.gray[800], MyTheme.colors.whiteAlpha[900]);
 
+    // define variants to be used for component animation
     const variants: Variants = {
         active: {
             borderBottom: `3px solid ${textColor}`,
@@ -44,6 +47,7 @@ function NavBarLink({ children, href, isMobile }: NavBarLinkProps) {
         }
     }
 
+    // the mobile render
     if (isMobile) {
         return (
             <Link href={href}>
@@ -62,6 +66,7 @@ function NavBarLink({ children, href, isMobile }: NavBarLinkProps) {
         );
     }
 
+    // render for anything bigger than mobile
     return <Link href={href}>
         <MotionFlex
             animate={isActive ? 'active' : 'inactive'}
@@ -75,6 +80,11 @@ function NavBarLink({ children, href, isMobile }: NavBarLinkProps) {
     </Link>
 }
 
+/**
+ * The entire navbar with its links and other buttons
+ * 
+ * @returns the NavBar
+ */
 export function NavBar() {
     // global context has info about menu
     const { menuIsExpanded, toggleExpandedMenu } = useAppContext();
@@ -84,7 +94,7 @@ export function NavBar() {
     // width of the side menu on mobile devices
     const { mobileMenuWidth } = useAppContext();
 
-    // variants for the side menu on mobile devices
+    // variants for the side menu on mobile devices to be used for animation
     const variants: Variants = {
         collapsed: {
             translateX: '-100%',
