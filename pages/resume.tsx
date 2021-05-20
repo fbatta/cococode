@@ -55,8 +55,10 @@ export default function Resume() {
                             <Tag borderRadius="full" colorScheme="cyan" fontSize="md" px="3" py="1" m="1">Node.JS</Tag>
                             <Tag borderRadius="full" colorScheme="cyan" fontSize="md" px="3" py="1" m="1">PHP</Tag>
                             <Tag borderRadius="full" colorScheme="cyan" fontSize="md" px="3" py="1" m="1">RDBMS</Tag>
+                            <Tag borderRadius="full" colorScheme="cyan" fontSize="md" px="3" py="1" m="1">REST / GraphQL</Tag>
                             <Tag borderRadius="full" colorScheme="cyan" fontSize="md" px="3" py="1" m="1">Firebase</Tag>
                             <Tag borderRadius="full" colorScheme="cyan" fontSize="md" px="3" py="1" m="1">EC2</Tag>
+                            <Tag borderRadius="full" colorScheme="cyan" fontSize="md" px="3" py="1" m="1">Docker</Tag>
                             <Tag borderRadius="full" colorScheme="cyan" fontSize="md" px="3" py="1" m="1">Ubuntu Server</Tag>
                         </Box>
                         <Heading as="h3" variant="h3">Tooling</Heading>
